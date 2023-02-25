@@ -1,6 +1,9 @@
 import React from "react"
+import exportAsImage from "../exportAsImage"
 
 export default function Meme(){
+
+    const exportRef = React.useRef()
 
     const [meme, setMeme] = React.useState(
         {
@@ -58,10 +61,17 @@ export default function Meme(){
                     Get a new meme image
                 </button>
             </div>
-            <div className="meme">
-                <img className="meme--image" src={meme.randomImage} alt="" />
-                <h2 className="meme--text top">{meme.topText}</h2>
-                <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            <div className="meme--container">
+                <div className="meme--left"></div>
+                <div ref={exportRef} className="meme">
+                    <img className="meme--image" src={meme.randomImage} alt=""/>
+                    <h2 className="meme--text top">{meme.topText}</h2>
+                    <h2 className="meme--text bottom">{meme.bottomText}</h2>
+                </div>
+                <div className="meme--right"></div>
+            </div>
+            <div className="download">
+                <button className="download--button" onClick={() => exportAsImage(exportRef.current, "meme")}>Download as PNG</button>
             </div>
         </main>
     )
