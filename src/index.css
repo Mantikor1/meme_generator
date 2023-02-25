@@ -110,6 +110,8 @@ main{
   position: absolute;
   /* width: 80%; */
   width: 100%;
+  /* max-width: 100%; */
+  word-wrap: break-word;
   /* text-align: center; */
   /* margin: 15px;
   padding: 0 5px; */
